@@ -15,10 +15,13 @@ int main()
 	    for(j=i+1;j<10;j++)
 		if(a[i] > a[j])
 		    min = j;
-		
-	    temp = a[min];
-	    a[i] = a[min];
-	    a[min] = temp;
+	   
+	    if(min != i)
+	    {
+		temp = a[min];
+		a[min] = a[i];
+		a[i] = temp;
+	    }
         }
         
         for(i = 0; i < 10; i++)
