@@ -19,6 +19,7 @@ int main()
 		  a[i] = a[j];
 		  a[j] = temp;
 	      }
+	    }
         }
         
         for(i = 0; i < 10; i++)
