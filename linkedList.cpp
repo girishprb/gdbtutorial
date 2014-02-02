@@ -7,10 +7,31 @@ struct node
   struct node * next;
 };
 
-struct node * root = NULL;
+void InsertHead(struct node *root,int val)
+{
+  
+  
+}
+
+void InsertTail(struct node *root,int val)
+{
+  
+  
+}
+
+int Pop(struct node * root)
+{
+  return 0;
+}
+
+int Dequeue(struct node * root)
+{
+  return 0;  
+}
 
 int main()
 {
+  struct node * root = NULL;
   struct node *newNode = new struct node;
   newNode->val = 0;
   root = newNode;
