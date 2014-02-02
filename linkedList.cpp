@@ -7,16 +7,43 @@ struct node
   struct node * next;
 };
 
-void InsertHead(struct node *root,int val)
+void InsertHead(struct node **root,int val)
 {
-  
-  
+  struct node * current = *root;
+  struct node * newNode = new struct node;
+  newNode->val = val;
+  newNode->next = current;
+  *root = newNode;
 }
 
-void InsertTail(struct node *root,int val)
+void PrintList(struct node * root)
 {
-  
-  
+  struct node * current = root;
+  while(current != NULL)
+  {
+   cout<<current->val<<endl;
+   current = current->next;
+  }
+}
+
+void InsertTail(struct node **root,int val)
+{
+  struct node * newNode = new struct node;
+  newNode->val = val;
+  newNode->next= NULL;
+  struct node * current = *root;
+  if(current == NULL)
+  {
+    *root = newNode;
+  }
+  else
+  {
+    while(current->next != NULL)
+    {
+      current = current->next;
+    }
+    current->next = newNode; 
+  }
 }
 
 int Pop(struct node * root)
@@ -35,8 +62,11 @@ int main()
   struct node *newNode = new struct node;
   newNode->val = 0;
   root = newNode;
-  cout<<root->val<<endl;
-  
+  //InsertHead(&root,1);
+  //InsertHead(&root,2);
+  //InsertHead(&root,3);
+  InsertTail(&root, 10);
+  PrintList(root);
   delete newNode;
   return 0;
 }
