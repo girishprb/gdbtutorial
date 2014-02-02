@@ -5,11 +5,11 @@ using namespace std;
 int main()
 {
 	int a[10],i,j, temp;
-	for(i=0; i<9; i++)
+	for(i=0; i<10; i++)
 	{
 		a[i] = 10 - i;
 	}
-        for(i=0; i<10; i++)
+        for(i=0; i<9; i++)
         {
 	    for(j=i+1;j<10;j++)
 	    {
