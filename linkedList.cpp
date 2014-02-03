@@ -7,7 +7,7 @@ struct node
   struct node * next;
 };
 
-void InsertHead(struct node **root,int val)
+void Push(struct node **root,int val)
 {
   struct node * current = *root;
   struct node * newNode = new struct node;
@@ -26,7 +26,7 @@ void PrintList(struct node * root)
   }
 }
 
-void InsertTail(struct node **root,int val)
+void Enqueue(struct node **root,int val)
 {
   struct node * newNode = new struct node;
   newNode->val = val;
@@ -51,9 +51,20 @@ int Pop(struct node * root)
   return 0;
 }
 
-int Dequeue(struct node * root)
+int Dequeue(struct node ** root)
 {
-  return 0;  
+  int returnVal=-1;
+  struct node * current = *root;
+  struct node * previous;
+  while(current->next != NULL)
+  {
+      previous = current;
+      current = current->next;
+  }
+  returnVal = current->val;
+  delete current;
+  previous->next = NULL;
+  return returnVal;  
 }
 
 int main()
@@ -62,10 +73,12 @@ int main()
   struct node *newNode = new struct node;
   newNode->val = 0;
   root = newNode;
-  //InsertHead(&root,1);
-  //InsertHead(&root,2);
-  //InsertHead(&root,3);
-  InsertTail(&root, 10);
+  Push(&root,1);
+  Push(&root,2);
+  Push(&root,3);
+  Enqueue(&root, 10);
+  PrintList(root);
+  Dequeue(&root);
   PrintList(root);
   delete newNode;
   return 0;
